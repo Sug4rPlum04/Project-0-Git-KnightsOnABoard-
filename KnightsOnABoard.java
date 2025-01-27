@@ -16,6 +16,13 @@ import java.util.Scanner;
 
 public class KnightsOnABoard {
 
+	/**
+	 * This method validates if a file exists or not
+	 * 
+	 * @param inputFile file name
+	 * @return boolean true/false if file can be located
+	 */
+
 	public static File validateFile(File inputFile){
 		Scanner scnr = new Scanner(System.in);
 		if(inputFile.exists()){
@@ -29,6 +36,13 @@ public class KnightsOnABoard {
 			return validateFile(input);
 		}  
 	}
+
+	/**
+	 * This method checks if the input file contains an 8x8 grid of numbers
+	 * 
+	 * @param inputFile file name
+	 * @return boolean true/false if file contains 8x8 grid of numbers
+	 */
 
 	public static boolean validateData(File inputFile) throws IOException{
 	    Scanner scnr = new Scanner(inputFile);
@@ -58,6 +72,13 @@ public class KnightsOnABoard {
 		    return false;
 		}
 	}
+
+	/**
+	 * This method scans the 8x8 grid and creates a new board consisting of 1s and 0s
+	 * 
+	 * @param inputFile file name
+	 * @return created board 
+	 */
 
 	public static int[][] populateBoard(File inputFile) throws IOException{
 		Scanner scnr = new Scanner(inputFile);
@@ -91,6 +112,13 @@ public class KnightsOnABoard {
 		return board;
 	}
 
+	/**
+	 * This method prints out the board
+	 * 
+	 * @param chessBoard 
+	 * @return board 
+	 */
+
 	public static void printBoard(int[][] chessBoard){
 		for(int i = 0; i < chessBoard.length; i++){
 			for(int j = 0; j < chessBoard[0].length; j++){
@@ -99,6 +127,13 @@ public class KnightsOnABoard {
 			System.out.println();
 		}
 	}
+
+	/**
+	 * This method analyzes where each 1 is and determines if any "knight" can capture another
+	 * 
+	 * @param chessBoard
+	 * @return boolean true/false if a knight can be captured
+	 */
 
 	public static boolean cannotCapture(int[][] chessBoard){
 		for(int i = 0; i < chessBoard.length; i++){
